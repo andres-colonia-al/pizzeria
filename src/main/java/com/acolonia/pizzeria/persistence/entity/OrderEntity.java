@@ -1,6 +1,7 @@
 package com.acolonia.pizzeria.persistence.entity;
 
 import com.acolonia.pizzeria.persistence.entity.Enum.MethodEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "pizza_order")
+@Getter
+@Setter
+@NoArgsConstructor
 public class OrderEntity {
     //configuración de atributos
     @Id
@@ -35,13 +39,14 @@ public class OrderEntity {
     private String additionalNotes;
 
     //Configuración de relaciones entre entidades
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     // name -> Especifica el nombre de la columna en la tabla actual que actúa como clave foránea.
     // referencedColumnName -> Indica la columna en la tabla de la entidad referenciada que está siendo apuntada como clave primaria.
     @JoinColumn(name = "id_customer", referencedColumnName = "id_customer", insertable = false, updatable = false)
+    @JsonIgnore
     private CustomerEntity customer;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
     // mappedBy -> indica que la entidad esta mapeada por el atributo order en la entidad OrderItemEntity
     private List<OrderItemEntity> items;
 }
