@@ -32,11 +32,11 @@ public class OrderItemEntity {
 
     //Configuración de relaciones entre entidades
     @OneToOne
-    @JoinColumn(name = "id_pizza" , referencedColumnName = "id_pizza", insertable = false, nullable = false)
+    @JoinColumn(name = "id_pizza" , referencedColumnName = "id_pizza", insertable = false, updatable = false)
     private PizzaEntity pizza;
 
     @ManyToOne
-    @JoinColumn(name = "id_order", referencedColumnName = "id_order", insertable = false, nullable = false)
+    @JoinColumn(name = "id_order", referencedColumnName = "id_order", insertable = false, updatable = false)
     private OrderEntity order;
 
 

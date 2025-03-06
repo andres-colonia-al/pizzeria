@@ -2,10 +2,15 @@ package com.acolonia.pizzeria.persistence.entity;
 
 import com.acolonia.pizzeria.persistence.entity.Enum.MethodEnum;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Entity
+@Table(name = "pizza_order")
 public class OrderEntity {
     //configuración de atributos
     @Id

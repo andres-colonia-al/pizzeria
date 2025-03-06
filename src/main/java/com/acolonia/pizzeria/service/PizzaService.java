@@ -3,9 +3,10 @@ package com.acolonia.pizzeria.service;
 import com.acolonia.pizzeria.persistence.entity.PizzaEntity;
 import com.acolonia.pizzeria.persistence.repository.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class PizzaService {
 
     @Autowired

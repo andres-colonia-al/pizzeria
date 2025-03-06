@@ -1,6 +1,7 @@
 package com.acolonia.pizzeria.persistence.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -34,4 +35,12 @@ public class PizzaEntity {
 
     @Column(columnDefinition = "TINYINT", nullable = false)
     private Boolean available;
+
+    public Integer getIdPizza() {
+        return idPizza;
+    }
+
+    public void setIdPizza(Integer idPizza) {
+        this.idPizza = idPizza;
+    }
 }
