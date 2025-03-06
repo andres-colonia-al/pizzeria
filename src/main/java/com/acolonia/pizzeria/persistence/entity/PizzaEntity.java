@@ -1,15 +1,12 @@
 package com.acolonia.pizzeria.persistence.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "pizza")
-@Getter
 @Setter
+@Getter
 @NoArgsConstructor
 public class PizzaEntity {
     //configuración de atributos
@@ -36,11 +33,4 @@ public class PizzaEntity {
     @Column(columnDefinition = "TINYINT", nullable = false)
     private Boolean available;
 
-    public Integer getIdPizza() {
-        return idPizza;
-    }
-
-    public void setIdPizza(Integer idPizza) {
-        this.idPizza = idPizza;
-    }
 }
