@@ -40,6 +40,10 @@ public class PizzaController {
     public ResponseEntity<List<PizzaEntity>> getWith(@PathVariable String description) {
         return ResponseEntity.ok(this.pizzaService.getWith(description));
     }
+    @GetMapping("/cheapper/{price}")
+    public ResponseEntity<List<PizzaEntity>> getCheapperPizza (@PathVariable double price) {
+        return ResponseEntity.ok(this.pizzaService.getTop(price));
+    }
 
     @GetMapping("/without/{description}")
     public ResponseEntity<List<PizzaEntity>> getWithNot(@PathVariable String description) {

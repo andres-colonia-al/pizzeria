@@ -21,7 +21,7 @@ public interface PizzaRepository extends JpaRepository<PizzaEntity, Integer> {
     // Query Methods True - By - And - Not - ContainingIgnoreCase
     List<PizzaEntity> findAllByAvailableTrueAndDescriptionNotContainingIgnoreCase(String description);
 
-    int countByVeganTrue ();
+    Integer countByVeganTrue();
 
-    //
+    List<PizzaEntity> findTop3ByAvailableTrueAndPriceLessThanEqualOrderByPriceAsc (double price);
 }
