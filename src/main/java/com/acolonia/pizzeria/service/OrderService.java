@@ -1,5 +1,6 @@
 package com.acolonia.pizzeria.service;
 
+import com.acolonia.pizzeria.persistence.Projection.OrderSummary;
 import com.acolonia.pizzeria.persistence.entity.Enum.MethodEnum;
 import com.acolonia.pizzeria.persistence.entity.OrderEntity;
 import com.acolonia.pizzeria.persistence.repository.OrderRepository;
@@ -34,6 +35,14 @@ public class OrderService {
     public List<OrderEntity> getOutsideOrders() {
         List<MethodEnum> methods = Arrays.asList(MethodEnum.D, MethodEnum.C);
         return this.orderRepository.findAllByMethodIn(methods);
+    }
+
+    public List<OrderEntity> getCustomerOrders (String idCustomer) {
+        return  this.orderRepository.findCustomerOrders(idCustomer);
+    }
+
+    public OrderSummary getSummary (int orderId){
+        return this.orderRepository.findSummary(orderId);
     }
 
 }

@@ -2,7 +2,9 @@ package com.acolonia.pizzeria.controller;
 
 import com.acolonia.pizzeria.persistence.entity.PizzaEntity;
 import com.acolonia.pizzeria.service.PizzaService;
+import com.acolonia.pizzeria.service.dto.UpdatePizzaPriceDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +17,20 @@ public class PizzaController {
 
     @Autowired
     private PizzaService pizzaService;
+
+    @GetMapping("/pag")
+    public ResponseEntity<Page<PizzaEntity>> getAllPage(@RequestParam(defaultValue = "0") int page,
+                                                        @RequestParam(defaultValue = "8") int elements) {
+        return ResponseEntity.ok(this.pizzaService.getAllPag(page, elements));
+    }
+
+    @GetMapping("/pag-sort")
+    public ResponseEntity<Page<PizzaEntity>> getAllPage(@RequestParam(defaultValue = "0") int page,
+                                                        @RequestParam(defaultValue = "8") int elements,
+                                                        @RequestParam(defaultValue = "price") String sortBy,
+                                                        @RequestParam(defaultValue = "ASC") String sortDirection) {
+        return ResponseEntity.ok(this.pizzaService.getAvailablePag(page, elements, sortBy, sortDirection));
+    }
 
     @GetMapping
     public ResponseEntity<List<PizzaEntity>> getAll() {
@@ -76,4 +92,14 @@ public class PizzaController {
 
         return ResponseEntity.badRequest().build();
     }
+    @PutMapping("/price")
+    public ResponseEntity<Void> updatePrice (@RequestBody UpdatePizzaPriceDto dto) {
+        if (this.pizzaService.exists(dto.getPizzaId())) {
+            this.pizzaService.updatePrice(dto);
+            return ResponseEntity.ok().build();
+        }
+
+        return ResponseEntity.badRequest().build();
+    }
+
 }

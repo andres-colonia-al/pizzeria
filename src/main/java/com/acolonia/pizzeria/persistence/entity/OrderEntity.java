@@ -47,6 +47,7 @@ public class OrderEntity {
     private CustomerEntity customer;
 
     @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
+    @OrderBy("price ASC")
     // mappedBy -> indica que la entidad esta mapeada por el atributo order en la entidad OrderItemEntity
     private List<OrderItemEntity> items;
 }
