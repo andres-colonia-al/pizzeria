@@ -6,7 +6,6 @@ import com.acolonia.pizzeria.persistence.entity.OrderEntity;
 import com.acolonia.pizzeria.persistence.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
