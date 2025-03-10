@@ -10,11 +10,13 @@ import org.springframework.util.SerializationUtils;
 public class AuditPizzaListener {
     private PizzaEntity currentValue;
 
-    @PostLoad
+    /*@PostLoad
     public void postLoad(PizzaEntity entity) {
         System.out.println("POST LOAD");
         this.currentValue = SerializationUtils.clone(entity);
     }
+
+     */
 
     @PostPersist
     @PostUpdate
