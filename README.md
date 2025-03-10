@@ -1,6 +1,6 @@
 # Pizzería API
 
-Este es un proyecto desarrollado en **Spring Boot** que gestiona una pizzería, permitiendo la administración de pedidos, productos y clientes. Se utiliza **Spring Data JPA** para la persistencia de datos en **MySQL**.
+Este es un proyecto desarrollado en **Spring Boot** que gestiona una pizzería, permitiendo la administración de pedidos, productos y clientes. Se utiliza **Spring Data JPA** para la persistencia de datos en **MySQL** y una configuración de seguridad basada utilizando **Spring Security**.
 
 ## Tecnologías utilizadas
 - **Java 21**
@@ -8,6 +8,7 @@ Este es un proyecto desarrollado en **Spring Boot** que gestiona una pizzería, 
 - **Spring Data JPA**
 - **MySQL**
 - **Maven**
+- **Spring Security**
 
 ## Instalación y configuración
 1. Clona el repositorio:
